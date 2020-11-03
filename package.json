@@ -3,6 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "description": "![Actions Status](/workflows/hexlet-check/badge.svg)",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
