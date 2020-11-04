@@ -2,3 +2,9 @@
 [![hexlet-check](https://github.com/danilaprokoshev/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/danilaprokoshev/frontend-project-lvl1/actions)
 ### Hexlet tests and linter status:
 ![Actions Status](/workflows/hexlet-check/badge.svg)
+
+## Run Linter
+
+```sh
+$ make lint
+```
