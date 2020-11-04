@@ -6,3 +6,9 @@
 ```sh
 $ make lint
 ```
+
+## Debug publishing
+
+```sh
+$ make publish
+``` 
