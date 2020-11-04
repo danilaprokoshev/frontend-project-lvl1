@@ -12,3 +12,9 @@ $ make lint
 ```sh
 $ make publish
 ``` 
+
+## Run game
+
+```sh
+$ brain-games
+```
