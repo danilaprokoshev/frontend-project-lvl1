@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/danilaprokoshev/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/danilaprokoshev/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/danilaprokoshev/frontend-project-lvl1#readme",
+  "dependencies": {
+    "promptly": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  }
 }
