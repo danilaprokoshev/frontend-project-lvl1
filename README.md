@@ -3,6 +3,8 @@
 
 <a href="https://asciinema.org/a/EPMljQnbq47E8Mf4QmWioVjOq">Representing install package and run "brain-even" game on <b>asciinema.org</b></a>
 
+<a href="https://asciinema.org/a/L3cqyRdaIDyZ1nxBE0tEcbNUQ">Representing install package and run "brain-calc" game on <b>asciinema.org</b></a>
+
 ## Run Linter
 
 ```sh
