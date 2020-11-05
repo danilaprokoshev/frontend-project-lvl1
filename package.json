@@ -5,6 +5,7 @@
   "description": "![Actions Status](/workflows/hexlet-check/badge.svg)",
   "bin": {
     "brain-games": "bin/brain-games.js"
+    "brain-even": "bin/brain-even.js"
   },
   "main": "index.js",
   "scripts": {
