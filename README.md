@@ -9,6 +9,8 @@
 
 <a href="https://asciinema.org/a/VuKvOPt1pdiWW7Gfm7ORTa4kX">Representing install package and run "brain-progression" game on <b>asciinema.org</b></a>
 
+<a href="https://asciinema.org/a/3yEfzdGg5VG6V3f9N1lv1x8yk">Representing install package and run "brain-prime" game on <b>asciinema.org</b></a>
+
 ## Run Linter
 
 ```sh
