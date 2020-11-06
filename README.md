@@ -7,6 +7,8 @@
 
 <a href="https://asciinema.org/a/af5D1KYXys1jgfvKJBTAAf5Up">Representing install package and run "brain-gcd" game on <b>asciinema.org</b></a>
 
+<a href="https://asciinema.org/a/VuKvOPt1pdiWW7Gfm7ORTa4kX">Representing install package and run "brain-progression" game on <b>asciinema.org</b></a>
+
 ## Run Linter
 
 ```sh
