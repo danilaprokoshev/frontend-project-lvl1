@@ -1,0 +1,1 @@
+export default (game) => game();
