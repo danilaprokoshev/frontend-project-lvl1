@@ -1,6 +1,9 @@
 import promptly from 'promptly';
 
 export default async () => {
+  const START_INT = 2;
+  const FINISH_INT = 3571;
+
   function isPrime(number) {
     for (let i = 2; i < number / 2; i += 1) {
       if (number % i === 0) {
@@ -17,7 +20,7 @@ export default async () => {
   let countRightAnswers = 0;
   while (countRightAnswers < 3) {
     let correctAnswer = '';
-    const arbitraryNumber = Math.round(Math.random() * (3571 - 2) + 2);
+    const arbitraryNumber = Math.round(Math.random() * (FINISH_INT - START_INT) + START_INT);
     if (isPrime(arbitraryNumber)) {
       correctAnswer = 'yes';
     } else correctAnswer = 'no';
