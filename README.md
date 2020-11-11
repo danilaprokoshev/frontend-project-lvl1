@@ -28,9 +28,3 @@ $ make publish
 ```sh
 $ brain-games
 ```
-
-## npm install
-
-```sh
-$ make install
-```
