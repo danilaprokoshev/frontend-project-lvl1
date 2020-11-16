@@ -1,36 +1,25 @@
-import promptly from 'promptly';
+const GREETING = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const START_INT = 2;
+const FINISH_INT = 3571;
 
-export default async () => {
-  const START_INT = 2;
-  const FINISH_INT = 3571;
-
-  function isPrime(number) {
-    for (let i = 2; i < number / 2; i += 1) {
-      if (number % i === 0) {
-        return false;
-      }
+function isPrime(number) {
+  for (let i = 2; i < number / 2; i += 1) {
+    if (number % i === 0) {
+      return false;
     }
-
-    return true;
   }
+  return true;
+}
 
-  const name = await promptly.prompt('May I have your name: ');
-  console.log(`Hello, ${name}!`);
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  let countRightAnswers = 0;
-  while (countRightAnswers < 3) {
-    let correctAnswer = '';
-    const arbitraryNumber = Math.round(Math.random() * (FINISH_INT - START_INT) + START_INT);
-    if (isPrime(arbitraryNumber)) {
-      correctAnswer = 'yes';
-    } else correctAnswer = 'no';
-    console.log(`Question: ${arbitraryNumber}`);
-    const answer = await promptly.prompt('Your answer: ');
-    if (answer === correctAnswer) {
-      console.log('Correct!');
-      countRightAnswers += 1;
-    } else return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`, '\n', `Let's try again, ${name}!`);
-  }
+const getQuestion = () => Math.round(Math.random() * (FINISH_INT - START_INT) + START_INT);
 
-  return console.log(`Congratulations, ${name}!`);
+const getCorrectAnswer = (question) => {
+  let correctAnswer = '';
+  if (isPrime(question)) {
+    correctAnswer = 'yes';
+  } else correctAnswer = 'no';
+
+  return correctAnswer;
 };
+
+export { GREETING, getQuestion, getCorrectAnswer };
