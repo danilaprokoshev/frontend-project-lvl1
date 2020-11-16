@@ -21,16 +21,17 @@ const getQuestion = () => {
 };
 
 const getCorrectAnswer = (question) => {
-  let correctAnswer = 0;
-  let step = 0;
   const coll = question.split(' ');
   const posOfHiddenElement = coll.indexOf('..');
-  if (posOfHiddenElement >= 0 && posOfHiddenElement < coll.length - 2) {
-    step = Number(coll[posOfHiddenElement + 2]) - Number(coll[posOfHiddenElement + 1]);
-    correctAnswer = Number(coll[posOfHiddenElement + 1]) - step;
+  const collAsNum = coll.map((x) => Number(x));
+  let correctAnswer = 0;
+  let step = 0;
+  if (posOfHiddenElement >= 0 && posOfHiddenElement < collAsNum.length - 2) {
+    step = collAsNum[posOfHiddenElement + 2] - collAsNum[posOfHiddenElement + 1];
+    correctAnswer = collAsNum[posOfHiddenElement + 1] - step;
   } else {
-    step = Number(coll[posOfHiddenElement - 1]) - Number(coll[posOfHiddenElement - 2]);
-    correctAnswer = Number(coll[posOfHiddenElement - 1]) + step;
+    step = collAsNum[posOfHiddenElement - 1] - collAsNum[posOfHiddenElement - 2];
+    correctAnswer = collAsNum[posOfHiddenElement - 1] + step;
   }
 
   return String(correctAnswer);
