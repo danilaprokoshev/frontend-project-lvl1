@@ -1,30 +1,39 @@
-import promptly from 'promptly';
+const GREETING = 'What number is missing in the progression?';
+const MAX_PROGLENGTH = 10;
+const MIN_PROGLENGTH = 5;
+const MAX_STEP = 5;
+const MIN_STEP = 2;
+const START_ELEMENT_INTERVAL = 50;
 
-export default async () => {
-  const name = await promptly.prompt('May I have your name: ');
-  console.log(`Hello, ${name}!`);
-  console.log('What number is missing in the progression?');
-  let countRightAnswers = 0;
-  while (countRightAnswers < 3) {
-    const progLength = Math.round(Math.random() * (10 - 5) + 5);
-    const step = Math.round(Math.random() * (5 - 2) + 2);
-    const posOfHiddenElement = Math.floor(Math.random() * progLength);
-    let startElement = Math.round(Math.random() * 50);
-    const coll = [];
-    let correctAnswer = 0;
-    for (let i = 0; i < progLength; i += 1) {
-      coll.push(startElement);
-      startElement += step;
-    }
-    correctAnswer = coll[posOfHiddenElement];
-    coll[posOfHiddenElement] = '..';
-    console.log(`Question: ${coll.join(' ')}`);
-    const answer = await promptly.prompt('Your answer: ');
-    if (Number(answer) === correctAnswer) {
-      console.log('Correct!');
-      countRightAnswers += 1;
-    } else return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`, '\n', `Let's try again, ${name}!`);
+const getQuestion = () => {
+  const progLength = Math.round(Math.random() * (MAX_PROGLENGTH - MIN_PROGLENGTH) + MIN_PROGLENGTH);
+  const step = Math.round(Math.random() * (MAX_STEP - MIN_STEP) + MIN_STEP);
+  const posOfHiddenElement = Math.floor(Math.random() * progLength);
+  let startElement = Math.round(Math.random() * START_ELEMENT_INTERVAL);
+  const coll = [];
+  for (let i = 0; i < progLength; i += 1) {
+    coll.push(startElement);
+    startElement += step;
+  }
+  coll[posOfHiddenElement] = '..';
+
+  return `${coll.join(' ')}`;
+};
+
+const getCorrectAnswer = (question) => {
+  let correctAnswer = 0;
+  let step = 0;
+  const coll = question.split(' ');
+  const posOfHiddenElement = coll.indexOf('..');
+  if (posOfHiddenElement >= 0 && posOfHiddenElement < coll.length - 2) {
+    step = Number(coll[posOfHiddenElement + 2]) - Number(coll[posOfHiddenElement + 1]);
+    correctAnswer = Number(coll[posOfHiddenElement + 1]) - step;
+  } else {
+    step = Number(coll[posOfHiddenElement - 1]) - Number(coll[posOfHiddenElement - 2]);
+    correctAnswer = Number(coll[posOfHiddenElement - 1]) + step;
   }
 
-  return console.log(`Congratulations, ${name}!`);
+  return String(correctAnswer);
 };
+
+export { GREETING, getQuestion, getCorrectAnswer };
