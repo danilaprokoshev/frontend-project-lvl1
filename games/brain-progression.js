@@ -23,7 +23,7 @@ const getQuestion = () => {
 const getCorrectAnswer = (question) => {
   const coll = question.split(' ');
   const posOfHiddenElement = coll.indexOf('..');
-  const collAsNum = coll.map((x) => Number(x));
+  const collAsNum = coll.map(Number);
   let correctAnswer = 0;
   let step = 0;
   if (posOfHiddenElement >= 0 && posOfHiddenElement < collAsNum.length - 2) {
