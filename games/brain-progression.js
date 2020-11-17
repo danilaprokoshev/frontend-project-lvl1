@@ -9,7 +9,7 @@ const MAX_STEP = 5;
 const START_FROM = 0;
 const START_TO = 50;
 
-const greeting = () => 'What number is missing in the progression?';
+const gameDescription = 'What number is missing in the progression?';
 
 const getQuestion = () => {
   const progrLength = generateNumber(MIN_PROGR_LENGTH, MAX_PROGR_LENGTH);
@@ -45,4 +45,4 @@ const getCorrectAnswer = (question) => {
   return String(correctAnswer);
 };
 
-export { greeting, getQuestion, getCorrectAnswer };
+export { gameDescription, getQuestion, getCorrectAnswer };
