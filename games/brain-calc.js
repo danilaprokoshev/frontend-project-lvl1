@@ -1,10 +1,17 @@
-const GREETING = 'What is the result of the expression?';
+import generateNumber from '../src/generating-numbers.js';
+
+const START_NUMBER = 0;
+const FINISH_NUMBER = 100;
+const START_INDEX = 0;
+const FINISH_INDEX = 2;
+
+const greeting = () => 'What is the result of the expression?';
 
 const getQuestion = () => {
   const operators = ['+', '-', '*'];
-  const firstOperand = Math.round(Math.random() * 100);
-  const secondOperand = Math.round(Math.random() * 100);
-  const opIndex = Math.floor(Math.random() * 3);
+  const firstOperand = generateNumber(START_NUMBER, FINISH_NUMBER);
+  const secondOperand = generateNumber(START_NUMBER, FINISH_NUMBER);
+  const opIndex = generateNumber(START_INDEX, FINISH_INDEX);
 
   return `${firstOperand} ${operators[opIndex]} ${secondOperand}`;
 };
@@ -30,4 +37,4 @@ const getCorrectAnswer = (question) => {
   return String(correctAnswer);
 };
 
-export { GREETING, getQuestion, getCorrectAnswer };
+export { greeting, getQuestion, getCorrectAnswer };
