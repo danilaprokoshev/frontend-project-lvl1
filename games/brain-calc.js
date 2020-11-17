@@ -5,7 +5,7 @@ const FINISH_NUMBER = 100;
 const START_INDEX = 0;
 const FINISH_INDEX = 2;
 
-const greeting = () => 'What is the result of the expression?';
+const gameDescription = 'What is the result of the expression?';
 
 const getQuestion = () => {
   const operators = ['+', '-', '*'];
@@ -37,4 +37,4 @@ const getCorrectAnswer = (question) => {
   return String(correctAnswer);
 };
 
-export { greeting, getQuestion, getCorrectAnswer };
+export { gameDescription, getQuestion, getCorrectAnswer };
