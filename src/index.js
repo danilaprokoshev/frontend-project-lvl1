@@ -3,8 +3,10 @@ import promptly from 'promptly';
 export default async (game) => {
   const name = await promptly.prompt('May I have your name: ');
   console.log(`Hello, ${name}!`);
-  console.log(game.GREETING);
-  for (let i = 0; i < 3; i += 1) {
+  console.log(game.greeting());
+  const rightAnswersToWin = 3;
+  for (let counterRightAnswer = 0; counterRightAnswer < rightAnswersToWin;
+    counterRightAnswer += 1) {
     const question = game.getQuestion();
     const correctAnswer = game.getCorrectAnswer(question);
     console.log(`Question: ${question}`);
@@ -12,7 +14,10 @@ export default async (game) => {
     if (answer === correctAnswer) {
       console.log('Correct!');
     } else {
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`, '\n', `Let's try again, ${name}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${name}!`);
+
+      return 0;
     }
   }
 
