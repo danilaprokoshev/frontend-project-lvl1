@@ -3,7 +3,7 @@ import promptly from 'promptly';
 export default async (game) => {
   const name = await promptly.prompt('May I have your name: ');
   console.log(`Hello, ${name}!`);
-  console.log(game.greeting());
+  console.log(game.gameDescription);
   const rightAnswersToWin = 3;
   for (let counterRightAnswer = 0; counterRightAnswer < rightAnswersToWin;
     counterRightAnswer += 1) {
