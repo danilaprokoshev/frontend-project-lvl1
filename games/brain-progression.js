@@ -1,40 +1,48 @@
-const GREETING = 'What number is missing in the progression?';
-const MAX_PROGLENGTH = 10;
-const MIN_PROGLENGTH = 5;
-const MAX_STEP = 5;
+import generateNumber from '../src/generating-numbers.js';
+
+const MIN_PROGR_LENGTH = 5;
+const MAX_PROGR_LENGTH = 10;
+
 const MIN_STEP = 2;
-const START_ELEMENT_INTERVAL = 50;
+const MAX_STEP = 5;
+
+const START_FROM = 0;
+const START_TO = 50;
+
+const greeting = () => 'What number is missing in the progression?';
 
 const getQuestion = () => {
-  const progLength = Math.round(Math.random() * (MAX_PROGLENGTH - MIN_PROGLENGTH) + MIN_PROGLENGTH);
-  const step = Math.round(Math.random() * (MAX_STEP - MIN_STEP) + MIN_STEP);
-  const posOfHiddenElement = Math.floor(Math.random() * progLength);
-  let startElement = Math.round(Math.random() * START_ELEMENT_INTERVAL);
+  const progrLength = generateNumber(MIN_PROGR_LENGTH, MAX_PROGR_LENGTH);
+  const step = generateNumber(MIN_STEP, MAX_STEP);
+  const startIndex = 0;
+  const finishIndex = progrLength - 1;
+  const indexOfHiddenElement = generateNumber(startIndex, finishIndex);
+  let element = generateNumber(START_FROM, START_TO);
   const coll = [];
-  for (let i = 0; i < progLength; i += 1) {
-    coll.push(startElement);
-    startElement += step;
+  for (let i = 0; i < progrLength; i += 1) {
+    coll.push(element);
+    element += step;
   }
-  coll[posOfHiddenElement] = '..';
+  coll[indexOfHiddenElement] = '..';
 
   return `${coll.join(' ')}`;
 };
 
 const getCorrectAnswer = (question) => {
   const coll = question.split(' ');
-  const posOfHiddenElement = coll.indexOf('..');
+  const indexOfHiddenElement = coll.indexOf('..');
   const collAsNum = coll.map(Number);
   let correctAnswer = 0;
   let step = 0;
-  if (posOfHiddenElement >= 0 && posOfHiddenElement < collAsNum.length - 2) {
-    step = collAsNum[posOfHiddenElement + 2] - collAsNum[posOfHiddenElement + 1];
-    correctAnswer = collAsNum[posOfHiddenElement + 1] - step;
+  if (indexOfHiddenElement >= 0 && indexOfHiddenElement < collAsNum.length - 2) {
+    step = collAsNum[indexOfHiddenElement + 2] - collAsNum[indexOfHiddenElement + 1];
+    correctAnswer = collAsNum[indexOfHiddenElement + 1] - step;
   } else {
-    step = collAsNum[posOfHiddenElement - 1] - collAsNum[posOfHiddenElement - 2];
-    correctAnswer = collAsNum[posOfHiddenElement - 1] + step;
+    step = collAsNum[indexOfHiddenElement - 1] - collAsNum[indexOfHiddenElement - 2];
+    correctAnswer = collAsNum[indexOfHiddenElement - 1] + step;
   }
 
   return String(correctAnswer);
 };
 
-export { GREETING, getQuestion, getCorrectAnswer };
+export { greeting, getQuestion, getCorrectAnswer };
