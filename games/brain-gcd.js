@@ -1,8 +1,13 @@
-const GREETING = 'Find the greatest common divisor of given numbers.';
+import generateNumber from '../src/generating-numbers.js';
+
+const START_NUMBER = 0;
+const FINISH_NUMBER = 100;
+
+const greeting = () => 'Find the greatest common divisor of given numbers.';
 
 const getQuestion = () => {
-  const firstNumber = Math.round(Math.random() * 100);
-  const secondNumber = Math.round(Math.random() * 100);
+  const firstNumber = generateNumber(START_NUMBER, FINISH_NUMBER);
+  const secondNumber = generateNumber(START_NUMBER, FINISH_NUMBER);
 
   return `${firstNumber} ${secondNumber}`;
 };
@@ -21,4 +26,4 @@ const getCorrectAnswer = (question) => {
   return String(gcd);
 };
 
-export { GREETING, getQuestion, getCorrectAnswer };
+export { greeting, getQuestion, getCorrectAnswer };
