@@ -1,7 +1,14 @@
-const GREETING = 'Answer "yes" if the number is even, otherwise answer "no".';
+import generateNumber from '../src/generating-numbers.js';
 
-const getQuestion = () => Math.round(Math.random() * 100);
+const START_NUMBER = 0;
+const FINISH_NUMBER = 100;
 
-const getCorrectAnswer = (question) => (question % 2 === 0 ? 'yes' : 'no');
+const greeting = () => 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export { GREETING, getQuestion, getCorrectAnswer };
+const isEven = (number) => number % 2 === 0;
+
+const getQuestion = () => generateNumber(START_NUMBER, FINISH_NUMBER);
+
+const getCorrectAnswer = (question) => (isEven(question) ? 'yes' : 'no');
+
+export { greeting, getQuestion, getCorrectAnswer };
