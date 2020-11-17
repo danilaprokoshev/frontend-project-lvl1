@@ -3,7 +3,7 @@ import generateNumber from '../src/generating-numbers.js';
 const START_NUMBER = 0;
 const FINISH_NUMBER = 100;
 
-const greeting = () => 'Find the greatest common divisor of given numbers.';
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const getQuestion = () => {
   const firstNumber = generateNumber(START_NUMBER, FINISH_NUMBER);
@@ -26,4 +26,4 @@ const getCorrectAnswer = (question) => {
   return String(gcd);
 };
 
-export { greeting, getQuestion, getCorrectAnswer };
+export { gameDescription, getQuestion, getCorrectAnswer };
