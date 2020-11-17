@@ -3,7 +3,7 @@ import generateNumber from '../src/generating-numbers.js';
 const START_NUMBER = 2;
 const FINISH_NUMBER = 3571;
 
-const greeting = () => 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(number) {
   for (let i = 2; i <= Math.sqrt(number); i += 1) {
@@ -18,4 +18,4 @@ const getQuestion = () => generateNumber(START_NUMBER, FINISH_NUMBER);
 
 const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
 
-export { greeting, getQuestion, getCorrectAnswer };
+export { gameDescription, getQuestion, getCorrectAnswer };
