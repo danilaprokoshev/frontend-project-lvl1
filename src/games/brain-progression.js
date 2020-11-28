@@ -21,7 +21,6 @@ const getProgression = (progrLength, step, firstElement) => {
     progression.push(element);
     element += step;
   }
-  // progression[indexOfHiddenElement] = '..';
 
   return progression;
 };
