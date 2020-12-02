@@ -7,6 +7,9 @@ const FINISH_NUMBER = 3571;
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(number) {
+  if (number < 2) {
+    return false;
+  }
   for (let i = 2; i <= Math.sqrt(number); i += 1) {
     if (number % i === 0) {
       return false;
@@ -15,12 +18,11 @@ function isPrime(number) {
   return true;
 }
 
-const getQuestion = () => generateNumber(START_NUMBER, FINISH_NUMBER);
+const getQuestionAndAnswer = () => {
+  const question = generateNumber(START_NUMBER, FINISH_NUMBER);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
-const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
-
-const startGame = () => quizGame(gameDescription, getQuestion, getCorrectAnswer);
-
-export {
-  gameDescription, getQuestion, getCorrectAnswer, startGame,
+  return [question, correctAnswer];
 };
+
+export default () => quizGame(gameDescription, getQuestionAndAnswer);
