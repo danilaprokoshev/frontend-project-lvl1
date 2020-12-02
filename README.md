@@ -1,30 +1,57 @@
+# Brain Games
+
 <a href="https://codeclimate.com/github/danilaprokoshev/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/d7cc6712c679ec9d36d4/maintainability" /></a>
 [![hexlet-check](https://github.com/danilaprokoshev/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/danilaprokoshev/frontend-project-lvl1/actions)
 
-<a href="https://asciinema.org/a/EPMljQnbq47E8Mf4QmWioVjOq">Representing install package and run "brain-even" game on <b>asciinema.org</b></a>
+## About
 
-<a href="https://asciinema.org/a/L3cqyRdaIDyZ1nxBE0tEcbNUQ">Representing install package and run "brain-calc" game on <b>asciinema.org</b></a>
+Brain Games is my educational project that I performed during the studying on <a href="https://asciinema.org/a/EPMljQnbq47E8Mf4QmWioVjOq">hexlet.io</a> (project level 1).
 
-<a href="https://asciinema.org/a/af5D1KYXys1jgfvKJBTAAf5Up">Representing install package and run "brain-gcd" game on <b>asciinema.org</b></a>
+Brain Games is a set of five console-games. Each game asks questions expecting right answers back. Three right answers mean that game is passed. Wrong answers finish game and suggest trying it again.
 
-<a href="https://asciinema.org/a/VuKvOPt1pdiWW7Gfm7ORTa4kX">Representing install package and run "brain-progression" game on <b>asciinema.org</b></a>
+Games:
+* Calculator. Do some simple calculations.
+* Progression. Find skipped element in sequence of numbers.
+* Conclude whether given number is even or not.
+* Find the greatest common divisor of given numbers.
+* Conclude whether given number is prime or not.
 
-<a href="https://asciinema.org/a/3yEfzdGg5VG6V3f9N1lv1x8yk">Representing install package and run "brain-prime" game on <b>asciinema.org</b></a>
-
-## Run Linter
+Example:
 
 ```sh
-$ make lint
+May I have your name: Joe
+Hello, Joe!
+What number is missing in the progression?
+Question: 38 43 48 .. 58 63
+Your answer: 53
+Correct!
+Question: 44 47 50 .. 56 59
+Your answer: 53
+Correct!
+Question: .. 27 31 35 39 43 47 51
+Your answer: 23
+Correct!
+Congratulations, Joe!
 ```
 
-## Debug publishing
+## Installation
 
-```sh
-$ make publish
-``` 
+1. Clone the repository or download ZIP.
+2. In the root directory: ```$ make install```.
+3. To install the package in your OS: ```$ npm link``` from the root directory.
 
-## Run game
+## Run Game
 
-```sh
-$ brain-games
-```
+* Calculator: ```$ brain-calc```
+* Progression: ```$ brain-progression```
+* Parity of the number: ```$ brain-even```
+* The greatest common divisor: ```$ brain-gcd```
+* Prime numbers: ```$ brain-prime```
+
+#### Links With Games Flow (on asciinema.org)
+
+* [brain-calc](https://asciinema.org/a/igN2ADu4Ztvqt8XDCkixFZ4rL)
+* [brain-progression](https://asciinema.org/a/tUCYTjoGR15lQwkYdj2VcffOt)
+* [brain-even](https://asciinema.org/a/MD3BVpfKkTK9bujOerwBNwKs1)
+* [brain-gcd](https://asciinema.org/a/Qwdp0Cxm4PZ1o0su4ZQeKmlIX)
+* [brain-prime](https://asciinema.org/a/nSOoB5qFLiRTdeFSOIiUvoziy)
