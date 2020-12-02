@@ -10,22 +10,18 @@ const MAX_STEP = 5;
 const START_FROM = 0;
 const START_TO = 50;
 
-let hiddenElement = 0;
-
 const gameDescription = 'What number is missing in the progression?';
 
 const getProgression = (progrLength, step, firstElement) => {
   const progression = [];
-  let element = firstElement;
   for (let i = 0; i < progrLength; i += 1) {
-    progression.push(element);
-    element += step;
+    progression.push(firstElement + step * i);
   }
 
   return progression;
 };
 
-const getQuestion = () => {
+const getQuestionAndAnswer = () => {
   const progrLength = generateNumber(MIN_PROGR_LENGTH, MAX_PROGR_LENGTH);
   const step = generateNumber(MIN_STEP, MAX_STEP);
   const startIndex = 0;
@@ -34,16 +30,12 @@ const getQuestion = () => {
   const firstElement = generateNumber(START_FROM, START_TO);
 
   const progression = getProgression(progrLength, step, firstElement);
-  hiddenElement = progression[indexOfHiddenElement];
+
+  const correctAnswer = progression[indexOfHiddenElement].toString();
   progression[indexOfHiddenElement] = '..';
+  const question = progression.join(' ');
 
-  return `${progression.join(' ')}`;
+  return [question, correctAnswer];
 };
 
-const getCorrectAnswer = () => String(hiddenElement);
-
-const startGame = () => quizGame(gameDescription, getQuestion, getCorrectAnswer);
-
-export {
-  gameDescription, getQuestion, getCorrectAnswer, startGame,
-};
+export default () => quizGame(gameDescription, getQuestionAndAnswer);
