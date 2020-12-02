@@ -8,17 +8,8 @@ const FINISH_INDEX = 2;
 
 const gameDescription = 'What is the result of the expression?';
 
-const getQuestion = () => {
-  const operators = ['+', '-', '*'];
-  const firstOperand = generateNumber(START_NUMBER, FINISH_NUMBER);
-  const secondOperand = generateNumber(START_NUMBER, FINISH_NUMBER);
-  const opIndex = generateNumber(START_INDEX, FINISH_INDEX);
-
-  return `${firstOperand} ${operators[opIndex]} ${secondOperand}`;
-};
-
 const calculate = (firstOperand, operator, secondOperand) => {
-  let result = 0;
+  let result;
   switch (operator) {
     case '+':
       result = firstOperand + secondOperand;
@@ -35,22 +26,17 @@ const calculate = (firstOperand, operator, secondOperand) => {
   return result;
 };
 
-const getCorrectAnswer = (question) => {
-  const [firstOperand, operator, secondOperand] = question
-    .split(' ')
-    .map((el, i) => {
-      if (i === 0 || i === 2) {
-        return Number(el);
-      }
+const getQuestionAndAnswer = () => {
+  const operators = ['+', '-', '*'];
+  const firstOperand = generateNumber(START_NUMBER, FINISH_NUMBER);
+  const secondOperand = generateNumber(START_NUMBER, FINISH_NUMBER);
+  const opIndex = generateNumber(START_INDEX, FINISH_INDEX);
+  const operator = operators[opIndex];
 
-      return el;
-    });
+  const question = [firstOperand, operator, secondOperand].join(' ');
+  const correctAnswer = calculate(firstOperand, operator, secondOperand).toString();
 
-  return String(calculate(firstOperand, operator, secondOperand));
+  return [question, correctAnswer];
 };
 
-const startGame = () => quizGame(gameDescription, getQuestion, getCorrectAnswer);
-
-export {
-  gameDescription, getQuestion, getCorrectAnswer, startGame,
-};
+export default () => quizGame(gameDescription, getQuestionAndAnswer);
