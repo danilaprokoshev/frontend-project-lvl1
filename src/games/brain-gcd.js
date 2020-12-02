@@ -6,13 +6,6 @@ const FINISH_NUMBER = 100;
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const getQuestion = () => {
-  const firstNumber = generateNumber(START_NUMBER, FINISH_NUMBER);
-  const secondNumber = generateNumber(START_NUMBER, FINISH_NUMBER);
-
-  return `${firstNumber} ${secondNumber}`;
-};
-
 const getGreatestCommonDivisor = (firstNumber, secondNumber) => {
   let gcd = 1;
   for (let divisor = 2; divisor <= Math.max(firstNumber, secondNumber); divisor += 1) {
@@ -24,16 +17,14 @@ const getGreatestCommonDivisor = (firstNumber, secondNumber) => {
   return gcd;
 };
 
-const getCorrectAnswer = (question) => {
-  const [firstNumber, secondNumber] = question
-    .split(' ')
-    .map(Number);
+const getQuestionAndAnswer = () => {
+  const firstNumber = generateNumber(START_NUMBER, FINISH_NUMBER);
+  const secondNumber = generateNumber(START_NUMBER, FINISH_NUMBER);
 
-  return String(getGreatestCommonDivisor(firstNumber, secondNumber));
+  const question = [firstNumber, secondNumber].join(' ');
+  const correctAnswer = getGreatestCommonDivisor(firstNumber, secondNumber).toString();
+
+  return [question, correctAnswer];
 };
 
-const startGame = () => quizGame(gameDescription, getQuestion, getCorrectAnswer);
-
-export {
-  gameDescription, getQuestion, getCorrectAnswer, startGame,
-};
+export default () => quizGame(gameDescription, getQuestionAndAnswer);
