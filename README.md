@@ -9,16 +9,16 @@ Brain Games is my educational project that I performed during the studying on <a
 
 Brain Games is a set of five console-games. Each game asks questions expecting right answers back. Three right answers mean that game is passed. Wrong answers finish game and suggest trying it again.
 
-Games:
+**Games**:
 * Calculator. Do some simple calculations.
 * Progression. Find skipped element in sequence of numbers.
 * Conclude whether given number is even or not.
 * Find the greatest common divisor of given numbers.
 * Conclude whether given number is prime or not.
 
-Example:
+**Example**:
 
-```sh
+```
 May I have your name: Joe
 Hello, Joe!
 What number is missing in the progression?
