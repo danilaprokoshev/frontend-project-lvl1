@@ -5,7 +5,7 @@
 
 ## About
 
-Brain Games is my educational project that I performed during the studying on <a href="https://asciinema.org/a/EPMljQnbq47E8Mf4QmWioVjOq">hexlet.io</a> (project level 1).
+Brain Games is my educational project that I performed during the studying on [hexlet.io](https://ru.hexlet.io/professions) (project level 1).
 
 Brain Games is a set of five console-games. Each game asks questions expecting right answers back. Three right answers mean that game is passed. Wrong answers finish game and suggest trying it again.
 
