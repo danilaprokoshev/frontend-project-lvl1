@@ -6,7 +6,7 @@ export default async (gameDescription, getQuestionAndAnswer) => {
   const name = await promptly.prompt('May I have your name: ');
   console.log(`Hello, ${name}!`);
   console.log(gameDescription);
-  for (let counterRightAnswer = 0; ;) {
+  for (let counterRightAnswer = 0; counterRightAnswer < CORRECT_ANSWERS_FOR_SUCCESS;) {
     const [question, correctAnswer] = getQuestionAndAnswer();
     console.log(`Question: ${question}`);
     const answer = await promptly.prompt('Your answer: ');
@@ -16,11 +16,8 @@ export default async (gameDescription, getQuestionAndAnswer) => {
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
-      break;
-    }
-    if (counterRightAnswer === CORRECT_ANSWERS_FOR_SUCCESS) {
-      console.log(`Congratulations, ${name}!`);
-      break;
+      return;
     }
   }
+  console.log(`Congratulations, ${name}!`);
 };
